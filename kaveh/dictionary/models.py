@@ -21,6 +21,7 @@ class TypeWordModel(MyAbstractModel):
 class WordModel(WordAbstractModel):
     origin = models.ForeignKey("WordModel", on_delete=models.CASCADE, related_name="branches")
     type = models.ManyToManyField("TypeWordModel", related_name="words", )
+    example = models.TextField()
 
 
 class ExtraMeanModel(WordAbstractModel):
