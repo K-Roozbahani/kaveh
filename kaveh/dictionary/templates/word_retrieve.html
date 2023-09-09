@@ -5,6 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-
+<div>
+   <h1>{{ message }}</h1>
+    <div>
+        {% for field in word %}
+            {{ field }}<br>
+        {% endfor %}
+    </div>
+</div>
 </body>
 </html>
