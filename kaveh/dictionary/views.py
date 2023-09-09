@@ -4,16 +4,17 @@ from .forms import WordForm
 from .models import WordModel
 
 
-class FormRetrieveView(views.View):
+class WordRetrieveView(views.View):
     def post(self, request, pk=None):
         """if pk=none add new word by Form Dictionary
         get pk!=none update word"""
 
         if pk is None:
-            form = WordForm(data=request.Post)
+            form = WordForm(data=request.POST)
             if form.is_valid():
-                context = {"form": form}
-                return render(request, "add_word.html", context)
+                form.save()
+                context = {"word", form.instance}
+                return render(request, "word_retrieve.html", context)
             else:
                 return self.get(request=request, form=form)
 
@@ -28,6 +29,7 @@ class FormRetrieveView(views.View):
             return render(request, "word_retrieve.html", context)
 
         elif pk is None:
+            form = WordForm()
             context = {"form": form}
             return render(request, "add_word.html", context)
 
