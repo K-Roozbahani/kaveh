@@ -8,9 +8,12 @@
 <div>
    <h1>{{ message }}</h1>
     <div>
-        {% for field in word %}
-            {{ field }}<br>
-        {% endfor %}
+        {{ word.type }}<br>
+        {{ word.title }}<br>
+        {{ word.mean }}<br>
+        {{ word.origin }}<br>
+        {{ word.example }}
+
     </div>
 </div>
 </body>
