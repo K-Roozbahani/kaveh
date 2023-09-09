@@ -24,7 +24,7 @@ class WordRetrieveView(views.View):
              if form return error in form"""
 
         if pk is not None:
-            word = get_object_or_404(WordForm, pk=pk)
+            word = get_object_or_404(WordModel, pk=pk)
             context = {"word": word}
             return render(request, "word_retrieve.html", context)
 
